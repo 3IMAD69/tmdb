@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import { MovieDetails } from './types';
 
 export const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -18,3 +19,12 @@ export const fetcher = async (axiosPromise :Promise<AxiosResponse>) => {
     return { data: null, error };
   }
 };
+
+
+export const fetchMovieDetails  = async (movieId : number) :  Promise<MovieDetails>  => {
+  const { data, error } = await fetcher(api.get(`/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`));
+  if (error) {
+    throw error;
+  }
+  return data;
+}

@@ -1,8 +1,14 @@
+'use client';
+
 import { Star } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 import { MovieDetails } from "@/lib/types"
+import { useState } from "react";
+import { MovieModal } from "./MovieModal";
 
 function MovieShowcase({movies} : {movies: MovieDetails[]}) {
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
+
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
       {movies.length === 0 && (
@@ -14,6 +20,7 @@ function MovieShowcase({movies} : {movies: MovieDetails[]}) {
             <Card
               key={movie.id}
               className="bg-white overflow-hidden rounded-md shadow-sm hover:shadow-md transition-all duration-300 group"
+              onClick={() => setSelectedMovieId(movie.id)}
             >
               <CardContent className="p-0">
                 <div className="aspect-[2/3] relative overflow-hidden">
@@ -44,6 +51,11 @@ function MovieShowcase({movies} : {movies: MovieDetails[]}) {
               </CardContent>
             </Card>
           ))}
+          <MovieModal
+            movieId={selectedMovieId}
+            isOpen={!!selectedMovieId}
+            onClose={() => setSelectedMovieId(null)}
+          />
     </div>
   )
 }

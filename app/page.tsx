@@ -28,15 +28,15 @@ export default async function Home(
   }
 
   const endpoint = validatedQuery.data.name
-                  ? `/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${validatedQuery.data.name}`
-                  : `/movie/popular?api_key=${process.env.TMDB_API_KEY}`
+                  ? `/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${validatedQuery.data.name}`
+                  : `/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   const {data  , error }  = await fetcher(api.get(endpoint))
   if (error) {
     console.error(error)
     return <div>Something went wrong</div>
   }
   const movies = data.results as MovieDetails[]
-  console.log(movies)
+  // console.log(movies)
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <header className="sticky top-0 bg-white border-b border-gray-200 z-10">
