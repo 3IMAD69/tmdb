@@ -4,6 +4,21 @@ interface Genre {
   name: string;
 }
 
+export interface Video {
+  id: string;
+  iso_639_1: string;
+  key: string;
+  name: string;
+  site: string;
+  size: number;
+  type: string;
+}
+
+export interface Videos {
+  id: number;
+  results: Video[];
+}
+
 export interface MovieDetails {
   adult: boolean;
   backdrop_path: string;
@@ -26,4 +41,5 @@ export interface MovieDetails {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  videos: Videos;
 }

@@ -22,7 +22,7 @@ export const fetcher = async (axiosPromise :Promise<AxiosResponse>) => {
 
 
 export const fetchMovieDetails  = async (movieId : number) :  Promise<MovieDetails>  => {
-  const { data, error } = await fetcher(api.get(`/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`));
+  const { data, error } = await fetcher(api.get(`/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&append_to_response=videos`));
   if (error) {
     throw error;
   }

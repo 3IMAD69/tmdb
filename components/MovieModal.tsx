@@ -33,12 +33,18 @@ export function MovieModal({ movieId, isOpen, onClose }: MovieModalProps) {
     enabled: !!movieId,
   })
 
+
   useEffect(() => {
-    if (isOpen) {
-      // In a real application, you would call an API to get the actual trailer URL
-      setTrailerUrl("https://www.youtube.com/embed/dQw4w9WgXcQ")
+    if (isOpen && movie) {
+      console.log("inside useEffect")
+      if (movie?.videos.results.length > 0) {
+        console.log(movie.videos.results[0])
+        setTrailerUrl(`https://www.youtube.com/embed/${movie.videos.results[0].key}`)
+      }
+      else
+        setTrailerUrl("https://www.youtube.com/embed/dQw4w9WgXcQ")
     }
-  }, [isOpen])
+  }, [isOpen,movie])
 
   // if (isLoading) return <p>loading..</p>
   if (error)
