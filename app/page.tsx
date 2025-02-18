@@ -4,7 +4,6 @@ import { MovieDetails } from "@/lib/types"
 import SearchInput from "@/components/SearchInput"
 import { z } from "zod"
 import Pagination from "@/components/Pagination"
-import { PaginationDemo } from "@/components/PaginationDemo"
 
 
 // i may need to validate other query params
