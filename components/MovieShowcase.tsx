@@ -40,7 +40,7 @@ function MovieShowcase({movies} : {movies: MovieDetails[]}) {
                       <p className="font-bold">{movie.release_date}</p>
                       <div className="flex items-center justify-center mt-2">
                         <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                        <span>{movie.vote_count}</span>
+                        <span>{movie.vote_average.toFixed(1)}</span>
                       </div>
                     </div>
                   </div>
