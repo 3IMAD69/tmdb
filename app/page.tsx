@@ -1,5 +1,3 @@
-import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
 import MovieShowcase from "@/components/MovieShowcase"
 import { api, fetcher } from "@/lib/axios"
 import { MovieDetails } from "@/lib/types"

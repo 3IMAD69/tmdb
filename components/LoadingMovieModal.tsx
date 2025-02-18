@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Skeleton } from "./ui/skeleton"
 import { Badge } from "./ui/badge"
 import { Calendar, Clock, DollarSign, Star, ThumbsUp, Users } from "lucide-react"

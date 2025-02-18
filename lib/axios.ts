@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { MovieDetails } from './types';
 
 export const api = axios.create({
@@ -26,6 +26,7 @@ export const fetchMovieDetails  = async (movieId : number) :  Promise<MovieDetai
   if (error) {
     throw error;
   }
+  //testing loading
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data;
 }

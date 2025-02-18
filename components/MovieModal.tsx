@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { Star, X, Calendar, Clock, DollarSign, ThumbsUp, Users } from "lucide-react"
+import { Star, Calendar, Clock, DollarSign, ThumbsUp, Users } from "lucide-react"
 import { fetchMovieDetails } from "@/lib/axios"
 import { useQuery } from "@tanstack/react-query"
 import LoadingMovieModal from "./LoadingMovieModal"
@@ -41,6 +41,15 @@ export function MovieModal({ movieId, isOpen, onClose }: MovieModalProps) {
   }, [isOpen])
 
   // if (isLoading) return <p>loading..</p>
+  if (error)
+    return (
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent>
+          <DialogTitle>Error</DialogTitle>
+          <p>Something went wrong</p>
+        </DialogContent>
+      </Dialog>
+    )
   // if (!movie) return null // bad but ok for now
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

@@ -1,8 +1,8 @@
 'use client';
 
-import { Star } from "lucide-react"
-import { Card, CardContent } from "./ui/card"
-import { MovieDetails } from "@/lib/types"
+import { Star } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
+import { MovieDetails } from "@/lib/types";
 import { useState } from "react";
 import { MovieModal } from "./MovieModal";
 
