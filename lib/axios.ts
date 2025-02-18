@@ -30,3 +30,19 @@ export const fetchMovieDetails  = async (movieId : number) :  Promise<MovieDetai
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data;
 }
+
+
+export interface MovieResponse {
+    page: number;
+    total_pages: number;
+    results: MovieDetails[];
+}
+
+export const fetchMoviesWithPage = async (page: number) : Promise<MovieResponse> => {
+  const { data, error } = await fetcher(api.get(`/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&page=${page}`));
+  if (error) {
+    throw error;
+  }
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return data;
+}
