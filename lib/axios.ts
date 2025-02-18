@@ -26,5 +26,6 @@ export const fetchMovieDetails  = async (movieId : number) :  Promise<MovieDetai
   if (error) {
     throw error;
   }
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return data;
 }
